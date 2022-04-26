@@ -22,7 +22,7 @@ const Home: NextPage = () => {
     getEvents()
   }, [])
 
-  // Gets and set events in state
+  // Fetches events and set in state
   const getEvents = async () => {
     const results = await fetchEvents()
 
@@ -34,13 +34,13 @@ const Home: NextPage = () => {
     setEvents(results.events)
   }
 
-  // Declare heroprops 
-  const heroprops = events[1] ? events[3].content[2] : null
-
-  // TODO: use better error handling
+  // TODO: implement robust error handler
   if (error) {
     return <p>Something terrible happened, please reload.</p>
   }
+
+  // Declare heroprops 
+  const heroprops = events[1] ? events[3].content[2] : null
 
   return (
     <div>
